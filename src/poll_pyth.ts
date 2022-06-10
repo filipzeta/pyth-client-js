@@ -29,11 +29,12 @@ pythConnection.onPriceChange(async (product, price) => {
       } publishSlot=${price.aggregate.publishSlot}, connectionSlot=${slot}, numPolls=${numPolls}`
 
       fs.writeFile('bad-prices.log', content + '\n', { flag: 'a+' }, (_err: any) => {})
-      // console.log(content)
+      console.log(content)
     }
   }
 })
 
 // tslint:disable-next-line:no-console
 // console.log('Reading from Pyth price feed...')
+fs.writeFile('bad-prices.log', 'Starting up!' + '\n', { flag: 'a+' }, (_err: any) => {})
 pythConnection.start()
